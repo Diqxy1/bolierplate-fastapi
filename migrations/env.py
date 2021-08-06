@@ -19,7 +19,7 @@ fileConfig(config.config_file_name)
 
 # this will overwrite the ini-file sqlalchemy.url path
 # with the path given in the config of the main code
-config.set_main_option("sqlalchemy.url", configEnv('DATABASE_URL'))
+config.set_main_option("sqlalchemy.url", configEnv('CLEARDB_DATABASE_URL'))
 
 # add your model's MetaData object here
 # for 'autogenerate' support
@@ -46,8 +46,8 @@ def run_migrations_offline():
 
     """
 
-    if not database_exists(configEnv("DATABASE_URL")):
-        create_database(configEnv("DATABASE_URL"))
+    if not database_exists(configEnv("CLEARDB_DATABASE_URL")):
+        create_database(configEnv("CLEARDB_DATABASE_URL"))
 
     url = config.get_main_option("sqlalchemy.url")
     context.configure(
@@ -69,8 +69,8 @@ def run_migrations_online():
 
     """
 
-    if not database_exists(configEnv("DATABASE_URL")):
-        create_database(configEnv("DATABASE_URL"))
+    if not database_exists(configEnv("CLEARDB_DATABASE_URL")):
+        create_database(configEnv("CLEARDB_DATABASE_URL"))
 
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
