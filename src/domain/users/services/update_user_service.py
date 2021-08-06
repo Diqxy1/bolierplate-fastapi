@@ -1,12 +1,12 @@
-from src.repositories.user_repository import UserRepository
+from src.domain.users.repositories import UserRepository
 from src.config.database import db
-from src.models.user_models import CreateUserModel, UserModel
+from src.domain.users.models import CreateUserModel, UserModel
 
 class UpdateUserService:
 
     def __init__(self):
         self._repository = UserRepository(session_factory=db.session)
-    
+
     def update_user(self, update_user_model: CreateUserModel, id: int) -> UserModel:
         return self._update_user(update_user_model, id)
 

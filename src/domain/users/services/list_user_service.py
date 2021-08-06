@@ -1,7 +1,7 @@
 from typing import List
 
-from src.repositories.user_repository import UserRepository
-from src.models.user_models import UserModel
+from src.domain.users.repositories import UserRepository
+from src.domain.users.models import UserModel
 from src.config.database import db
 
 

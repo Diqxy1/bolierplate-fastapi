@@ -1,16 +1,17 @@
 from fastapi import APIRouter
 from typing import List
 
-from src.models.user_models import CreateUserModel, UserModel
-from src.services.create_user_service import CreateUserService
-from src.services.list_user_service import ListUserService
-from src.services.update_user_service import UpdateUserService
-from src.services.delete_user_service import DeleteUserService
+from src.domain.users.models import UserModel, CreateUserModel
+from src.domain.users.services import (CreateUserService,
+    ListUserService,
+    UpdateUserService,
+    DeleteUserService
+)
 
 
 router = APIRouter(
     prefix='/users',
-    tags=['users']
+    tags=['users'],
 )
 
 @router.get('/', response_model=List[UserModel])

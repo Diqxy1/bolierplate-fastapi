@@ -1,6 +1,6 @@
-from src.repositories.user_repository import UserRepository
+from src.domain.users.repositories import UserRepository
 from src.config.database import db
-from src.models.user_models import UserModel, CreateUserModel
+from src.domain.users.models import UserModel, CreateUserModel
 
 class CreateUserService:
 
