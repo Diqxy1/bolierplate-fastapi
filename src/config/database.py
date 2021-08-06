@@ -1,11 +1,10 @@
 from contextlib import contextmanager
-from typing import Callable, ContextManager
 import logging
 from decouple import config
 
 from sqlalchemy import create_engine, orm
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session, session
+from sqlalchemy.orm import Session
 
 logger = logging.getLogger(__name__)
 
@@ -14,8 +13,7 @@ Base = declarative_base()
 class Database:
 
     def __init__(self, db_url: str):
-        self._engine = create_engine(db_url, connect_args={
-            "check_same_thread": False})
+        self._engine = create_engine(db_url)
         self._session_factory = orm.scoped_session(
             orm.sessionmaker(
                 autocommit=False,

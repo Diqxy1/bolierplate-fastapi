@@ -37,8 +37,8 @@ class UserRepository:
     
 
     def delete_user(self, id:int) -> None:
-        """ console erro ??? """
         with self._session_factory() as session:
             user_entity = session.query(User).filter(User.id == id).first()
             session.delete(user_entity)
             session.commit()
+            return {"Usuario deletado com sucesso"}
