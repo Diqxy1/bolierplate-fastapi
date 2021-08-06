@@ -10,7 +10,7 @@ class Container(containers.DeclarativeContainer):
     config = providers.Configuration()
 
     db = providers.Singleton(
-        Database, db_url=configEnv('DATABASE_URL')
+        Database, db_url=configEnv('CLEARDB_DATABASE_URL')
     )
 
     user_contaier = providers.Container(UserContainer, db=db)

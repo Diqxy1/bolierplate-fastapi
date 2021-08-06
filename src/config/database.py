@@ -21,10 +21,10 @@ class Database:
                 bind=self._engine,
             )
         )
-    
+
     def create_database(self):
         Base.metadata.create_all(self._engine)
-    
+
     @contextmanager
     def session(self):
         session: Session = self._session_factory()
@@ -36,4 +36,4 @@ class Database:
         finally:
             session.close()
 
-db = Database(db_url=config('DATABASE_URL'))
+db = Database(db_url=config('CLEARDB_DATABASE_URL'))
