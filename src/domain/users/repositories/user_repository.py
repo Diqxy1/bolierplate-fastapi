@@ -42,3 +42,17 @@ class UserRepository:
             session.delete(user_entity)
             session.commit()
             return {"Usuario deletado com sucesso"}
+
+
+    def get_by_email(self, email:str) -> UserModel:
+        with self._session_factory() as session:
+            user_entity = session.query(User).filter(User.email == email).first()
+            user_model = UserModel.from_orm(user_entity) if user_entity else None
+            return user_model
+
+
+    def get_by_id(self, id: int) -> UserModel:
+        with self._session_factory() as session:
+            user_entity = session.query(User).filter(User.id == id).first()
+            user_model = UserModel.from_orm(user_entity) if user_entity else None
+            return user_model
