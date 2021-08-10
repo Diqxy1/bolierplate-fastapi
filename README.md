@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ## Clone this repository
 
 ```
-git clone https://github.com/Diqxy1/ts-restful.git
+https://github.com/Diqxy1/bolierplate-fastapi.git
 ```
 
 ## Start the server
