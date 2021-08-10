@@ -2,10 +2,12 @@ from fastapi import APIRouter
 from typing import List
 
 from src.domain.users.models import UserModel, CreateUserModel
-from src.domain.users.services import (CreateUserService,
+from src.domain.users.services import (
+    CreateUserService,
     ListUserService,
     UpdateUserService,
-    DeleteUserService
+    DeleteUserService,
+    DetailUserService
 )
 
 
@@ -34,3 +36,8 @@ def update_user(update_user_model: CreateUserModel, id: int):
 def delete_user(id:int):
     service = DeleteUserService()
     return service.delete(id)
+
+@router.get('/{id}', response_model=UserModel)
+def detail_user(id: int):
+    service = DetailUserService()
+    return service.detail_user(id)

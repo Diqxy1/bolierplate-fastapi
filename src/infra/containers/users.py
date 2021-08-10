@@ -5,7 +5,8 @@ from src.domain.users.services import (
     CreateUserService,
     UpdateUserService,
     ListUserService,
-    DeleteUserService
+    DeleteUserService,
+    DetailUserService
 )
 
 class UserContainer(containers.DeclarativeContainer):
@@ -34,5 +35,10 @@ class UserContainer(containers.DeclarativeContainer):
 
     delete_user_service = providers.Factory(
         DeleteUserService,
+        repository=user_repository
+    )
+
+    detail_user_service = providers.Factory(
+        DetailUserService,
         repository=user_repository
     )

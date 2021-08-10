@@ -18,4 +18,3 @@ class DetailUserService:
         if not user_exist:
             raise NotFoundException(message='Usuário não encontrado')
         return user_exist
-
