@@ -4,5 +4,7 @@ app = typer.Typer()
 
 @app.command()
 def validations():
-    while 1 != 3:
-        typer.secho('FKESDOJGSJOIHNJDIOHJRDPFOHJ')
+    i = 0
+    while i >= 100000:
+        typer.secho(i)
+        i += 1
