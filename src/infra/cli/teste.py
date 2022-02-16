@@ -4,5 +4,5 @@ app = typer.Typer()
 
 @app.command()
 def validations():
-    print('aaaaaa')
-    typer.secho('Não trava pelo amor de deus')
+    while 1 == 3:
+        typer.secho('FKESDOJGSJOIHNJDIOHJRDPFOHJ')
